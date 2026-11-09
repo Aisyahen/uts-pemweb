@@ -51,7 +51,7 @@
                     <p class="slogan-sub" data-id="slogan">Kompeten, Religius, Efektif, Amanah, Terampil, Inovatif, Future</p>
                 </div>
 
-                <!-- Box Search 1 Baris (Panjang Pas dengan Judul) -->
+                <!-- Box Search 1 Baris (Filter Diperbarui) -->
                 <div class="search-section-wrapper">
                     <div class="search-filter-box shadow-card">
                         <div class="search-single-row">
@@ -74,12 +74,13 @@
                             </select>
 
                             <select id="filterSkala" class="search-col">
-                                <option value="">Semua Skala</option>
-                                <option value="Internal PTI">Internal PTI</option>
+                                <option value="">Semua Sasaran & Skala</option>
+                                <option value="Mahasiswa PTI">Mahasiswa PTI</option>
                                 <option value="Mahasiswa PTI & Umum">Mahasiswa PTI & Umum</option>
+                                <option value="Umum">Umum</option>
                                 <option value="Nasional">Skala Nasional</option>
                                 <option value="Internasional">Skala Internasional</option>
-                                <option value="Online">Online / Webinar</option>
+                                <option value="Online">Online</option>
                                 <option value="Offline">Offline</option>
                             </select>
 
@@ -102,7 +103,10 @@
             <div class="terdekat-grid">
                 <!-- Card 1 -->
                 <article class="terdekat-card shadow-card">
-                    <span class="badge-urgent" data-id="badge-terdekat">TERDEKAT</span>
+                    <div class="badge-group">
+                        <span class="badge-urgent" data-id="badge-terdekat">TERDEKAT</span>
+                        <span class="badge-target badge-pti">Mahasiswa PTI</span>
+                    </div>
                     <h3>Workshop & Kelas Kreatif: Pemrograman Web Modern</h3>
                     <div class="info-list">
                         <p class="info-row"><span class="info-label">📅 Hari, Tgl</span><span class="info-colon">:</span><span class="info-val">Sabtu, 21 November 2026</span></p>
@@ -117,11 +121,14 @@
 
                 <!-- Card 2 (Kajian Islam) -->
                 <article class="terdekat-card shadow-card">
-                    <span class="badge-urgent" data-id="badge-terdekat">TERDEKAT</span>
+                    <div class="badge-group">
+                        <span class="badge-urgent" data-id="badge-terdekat">TERDEKAT</span>
+                        <span class="badge-target badge-pti-umum">Mahasiswa PTI & Umum</span>
+                    </div>
                     <h3>Kajian Islam: Pemuda, Mau Dibawa Kemana Hidupmu?</h3>
                     <div class="info-list">
                         <p class="info-row"><span class="info-label">📅 Hari, Tgl</span><span class="info-colon">:</span><span class="info-val">Jumat, 27 November 2026</span></p>
-                        <p class="info-row"><span class="info-label">⏰ Waktu</span><span class="info-colon">:</span><span class="info-val">15.30 WIB</span></p>
+                        <p class="info-row"><span class="info-label">⏰ Waktu</span><span class="info-colon">:</span><span class="info-val">15.30 - 17.30 WIB</span></p>
                         <p class="info-row"><span class="info-label">📍 Lokasi</span><span class="info-colon">:</span><span class="info-val">Masjid Fadhlurrahman Kampus 1 UMS</span></p>
                     </div>
                     <div class="card-actions">
@@ -132,11 +139,14 @@
 
                 <!-- Card 3 -->
                 <article class="terdekat-card shadow-card">
-                    <span class="badge-urgent" data-id="badge-terdekat">TERDEKAT</span>
+                    <div class="badge-group">
+                        <span class="badge-urgent" data-id="badge-terdekat">TERDEKAT</span>
+                        <span class="badge-target badge-umum">Umum</span>
+                    </div>
                     <h3>Webinar Nasional: AI Trends in Education</h3>
                     <div class="info-list">
                         <p class="info-row"><span class="info-label">📅 Hari, Tgl</span><span class="info-colon">:</span><span class="info-val">Rabu, 2 Desember 2026</span></p>
-                        <p class="info-row"><span class="info-label">⏰ Waktu</span><span class="info-colon">:</span><span class="info-val">13.00 WIB</span></p>
+                        <p class="info-row"><span class="info-label">⏰ Waktu</span><span class="info-colon">:</span><span class="info-val">13.00 - 15.30 WIB</span></p>
                         <p class="info-row"><span class="info-label">📍 Lokasi</span><span class="info-colon">:</span><span class="info-val">Zoom Meeting (Online)</span></p>
                     </div>
                     <div class="card-actions">
@@ -163,8 +173,14 @@
                             <div class="item-grid">
                                 <div class="item-card shadow-sm">
                                     <h4>Kajian Islam: Pemuda, Mau Dibawa Kemana Hidupmu?</h4>
-                                    <div class="tag-wrapper"><span class="tag-internal">Mahasiswa PTI & Umum</span></div>
-                                    <p><strong>Hari, Tgl:</strong> Jumat, 27 November 2026</p>
+                                    <div class="tag-wrapper">
+                                        <span class="tag-target tag-pti-umum">Mahasiswa PTI & Umum</span>
+                                        <span class="tag-skala offline">Offline</span>
+                                    </div>
+                                    <p><strong>📅 Hari, Tgl:</strong> Jumat, 27 November 2026</p>
+                                    <p><strong>⏰ Waktu:</strong> 15.30 - 17.30 WIB</p>
+                                    <p><strong>📍 Lokasi:</strong> Masjid Fadhlurrahman Kampus 1 UMS</p>
+                                    <p><strong>🎁 Benefit:</strong> Ilmu Bermanfaat, Snack, Relasi</p>
                                     <div class="item-actions">
                                         <button class="btn-link shadow-btn" onclick="openPosterModal('Poster Kegiatan', 'poster kajian islam.jpeg')" data-id="btn-poster">Lihat Poster</button>
                                         <button class="btn-daftar-sm shadow-btn" onclick="catatDanBukaGForm('Kajian Islam: Pemuda, Mau Dibawa Kemana Hidupmu?', 'https://bit.ly/4z39Btp')" data-id="btn-daftar-sm">Daftar</button>
@@ -173,8 +189,14 @@
 
                                 <div class="item-card shadow-sm">
                                     <h4>Workshop Tech Fusion</h4>
-                                    <div class="tag-wrapper"><span class="tag-internal">Internal PTI</span></div>
-                                    <p><strong>Hari, Tgl:</strong> Kamis, 10 Desember 2026</p>
+                                    <div class="tag-wrapper">
+                                        <span class="tag-target tag-pti">Mahasiswa PTI</span>
+                                        <span class="tag-skala offline">Offline</span>
+                                    </div>
+                                    <p><strong>📅 Hari, Tgl:</strong> Kamis, 10 Desember 2026</p>
+                                    <p><strong>⏰ Waktu:</strong> 08.30 - 12.00 WIB</p>
+                                    <p><strong>📍 Lokasi:</strong> Ruang Seminar FKIP UMS</p>
+                                    <p><strong>🎁 Benefit:</strong> Sertifikat, Modul Praktikum, Snack</p>
                                     <div class="item-actions">
                                         <button class="btn-link shadow-btn" onclick="openPosterModal('Poster Kegiatan', 'https://via.placeholder.com/600x800?text=Poster+Tech+Fusion')" data-id="btn-poster">Lihat Poster</button>
                                         <button class="btn-daftar-sm shadow-btn" onclick="catatDanBukaGForm('Workshop Tech Fusion', 'https://docs.google.com/forms/d/14f8B955-bFAyn6KGP60nVG2k4QLhdhp_SQF_CuKo2hA/viewform')" data-id="btn-daftar-sm">Daftar</button>
@@ -194,8 +216,14 @@
                             <div class="item-grid">
                                 <div class="item-card shadow-sm">
                                     <h4>Pemrograman Web Modern</h4>
-                                    <div class="tag-wrapper"><span class="tag-rutin">Rutin Internal PTI</span></div>
-                                    <p><strong>Hari, Tgl:</strong> Sabtu, 21 November 2026</p>
+                                    <div class="tag-wrapper">
+                                        <span class="tag-target tag-pti">Mahasiswa PTI</span>
+                                        <span class="tag-skala offline">Offline</span>
+                                    </div>
+                                    <p><strong>📅 Hari, Tgl:</strong> Sabtu, 21 November 2026</p>
+                                    <p><strong>⏰ Waktu:</strong> 09.00 - 12.00 WIB</p>
+                                    <p><strong>📍 Lokasi:</strong> Lab Komputer 2 PTI UMS</p>
+                                    <p><strong>🎁 Benefit:</strong> E-Certificate, Source Code, Portfolio Project</p>
                                     <div class="item-actions">
                                         <button class="btn-link shadow-btn" onclick="openPosterModal('Poster Kegiatan', 'https://via.placeholder.com/600x800?text=Poster+Kelas+Web')" data-id="btn-poster">Lihat Poster</button>
                                         <button class="btn-daftar-sm shadow-btn" onclick="catatDanBukaGForm('Pemrograman Web Modern', 'https://docs.google.com/forms/d/14f8B955-bFAyn6KGP60nVG2k4QLhdhp_SQF_CuKo2hA/viewform')" data-id="btn-daftar-sm">Daftar</button>
@@ -204,8 +232,14 @@
 
                                 <div class="item-card shadow-sm">
                                     <h4>IoT & Embedded System</h4>
-                                    <div class="tag-wrapper"><span class="tag-soon">SOON</span></div>
-                                    <p><strong>Hari, Tgl:</strong> Sabtu, 19 Desember 2026</p>
+                                    <div class="tag-wrapper">
+                                        <span class="tag-target tag-pti">Mahasiswa PTI</span>
+                                        <span class="tag-soon">SOON</span>
+                                    </div>
+                                    <p><strong>📅 Hari, Tgl:</strong> Sabtu, 19 Desember 2026</p>
+                                    <p><strong>⏰ Waktu:</strong> 09.00 - 12.00 WIB</p>
+                                    <p><strong>📍 Lokasi:</strong> Lab Hardware & IoT PTI UMS</p>
+                                    <p><strong>🎁 Benefit:</strong> E-Certificate, Kit Simulation Guide</p>
                                     <div class="item-actions">
                                         <button class="btn-link shadow-btn" onclick="openPosterModal('Poster Kegiatan', 'https://via.placeholder.com/600x800?text=Poster+IoT')" data-id="btn-poster">Lihat Poster</button>
                                         <button class="btn-disabled" disabled>Soon</button>
@@ -225,8 +259,12 @@
                             <div class="item-grid">
                                 <div class="item-card shadow-sm">
                                     <h4>Web Design Competition</h4>
-                                    <div class="tag-wrapper"><span class="tag-skala nasional">Nasional</span></div>
-                                    <p><strong>Pendaftaran:</strong> 1 November 2026 - 30 November 2026</p>
+                                    <div class="tag-wrapper">
+                                        <span class="tag-target tag-umum">Umum</span>
+                                        <span class="tag-skala nasional">Nasional</span>
+                                    </div>
+                                    <p><strong>📅 Pendaftaran:</strong> 1 Nov 2026 - 30 Nov 2026</p>
+                                    <p><strong>🎁 Benefit:</strong> Total Hadiah Jutaan Rupiah, Trophy, E-Certificate Peserta</p>
                                     <div class="item-actions">
                                         <button class="btn-link shadow-btn" onclick="openPosterModal('Poster Kegiatan', 'https://via.placeholder.com/600x800?text=Poster+Lomba+Web')" data-id="btn-poster">Lihat Poster</button>
                                         <button class="btn-daftar-sm shadow-btn" onclick="catatDanBukaGForm('Web Design Competition', 'https://docs.google.com/forms/d/14f8B955-bFAyn6KGP60nVG2k4QLhdhp_SQF_CuKo2hA/viewform')" data-id="btn-daftar-sm">Daftar</button>
@@ -235,8 +273,12 @@
 
                                 <div class="item-card shadow-sm">
                                     <h4>International EdTech Hackathon</h4>
-                                    <div class="tag-wrapper"><span class="tag-skala internasional">Internasional</span></div>
-                                    <p><strong>Pendaftaran:</strong> 15 November 2026 - 15 Januari 2027</p>
+                                    <div class="tag-wrapper">
+                                        <span class="tag-target tag-umum">Umum</span>
+                                        <span class="tag-skala internasional">Internasional</span>
+                                    </div>
+                                    <p><strong>📅 Pendaftaran:</strong> 15 Nov 2026 - 15 Jan 2027</p>
+                                    <p><strong>🎁 Benefit:</strong> Global Recognition, Cash Prize, Mentoring Eksklusif</p>
                                     <div class="item-actions">
                                         <button class="btn-link shadow-btn" onclick="openPosterModal('Poster Kegiatan', 'https://via.placeholder.com/600x800?text=Poster+Hackathon')" data-id="btn-poster">Lihat Poster</button>
                                         <button class="btn-daftar-sm shadow-btn" onclick="catatDanBukaGForm('International EdTech Hackathon', 'https://docs.google.com/forms/d/14f8B955-bFAyn6KGP60nVG2k4QLhdhp_SQF_CuKo2hA/viewform')" data-id="btn-daftar-sm">Daftar</button>
@@ -256,10 +298,14 @@
                             <div class="item-grid">
                                 <div class="item-card shadow-sm">
                                     <h4>Webinar AI Trends in Education</h4>
-                                    <div class="tag-wrapper"><span class="tag-skala online">Online | Nasional</span></div>
-                                    <p><strong>Platform:</strong> Zoom Meeting</p>
-                                    <p><strong>Benefit:</strong> E-Sertifikat, Relasi, E-Book</p>
-                                    <p><strong>Hari, Tgl:</strong> Rabu, 2 Desember 2026</p>
+                                    <div class="tag-wrapper">
+                                        <span class="tag-target tag-umum">Umum</span>
+                                        <span class="tag-skala online">Online | Nasional</span>
+                                    </div>
+                                    <p><strong>📅 Hari, Tgl:</strong> Rabu, 2 Desember 2026</p>
+                                    <p><strong>⏰ Waktu:</strong> 13.00 - 15.30 WIB</p>
+                                    <p><strong>📍 Platform:</strong> Zoom Meeting</p>
+                                    <p><strong>🎁 Benefit:</strong> E-Sertifikat Bernilai SKPI, Materi PDF, E-Book</p>
                                     <div class="item-actions">
                                         <button class="btn-link shadow-btn" onclick="openPosterModal('Poster Kegiatan', 'https://via.placeholder.com/600x800?text=Poster+Webinar+AI')" data-id="btn-poster">Lihat Poster</button>
                                         <button class="btn-daftar-sm shadow-btn" onclick="catatDanBukaGForm('Webinar AI Trends in Education', 'https://docs.google.com/forms/d/14f8B955-bFAyn6KGP60nVG2k4QLhdhp_SQF_CuKo2hA/viewform')" data-id="btn-daftar-sm">Daftar</button>
@@ -268,10 +314,14 @@
 
                                 <div class="item-card shadow-sm">
                                     <h4>Seminar Cybersecurity Essentials</h4>
-                                    <div class="tag-wrapper"><span class="tag-skala nasional">Offline | Nasional</span></div>
-                                    <p><strong>Tempat:</strong> Auditorium Moh. Djazman UMS</p>
-                                    <p><strong>Benefit:</strong> Sertifikat Resmi, Lunch Box, Kits</p>
-                                    <p><strong>Hari, Tgl:</strong> Sabtu, 5 Desember 2026</p>
+                                    <div class="tag-wrapper">
+                                        <span class="tag-target tag-pti-umum">Mahasiswa PTI & Umum</span>
+                                        <span class="tag-skala nasional">Offline | Nasional</span>
+                                    </div>
+                                    <p><strong>📅 Hari, Tgl:</strong> Sabtu, 5 Desember 2026</p>
+                                    <p><strong>⏰ Waktu:</strong> 08.00 - 12.00 WIB</p>
+                                    <p><strong>📍 Tempat:</strong> Auditorium Moh. Djazman UMS</p>
+                                    <p><strong>🎁 Benefit:</strong> Sertifikat Resmi, Lunch Box, Seminar Kit</p>
                                     <div class="item-actions">
                                         <button class="btn-link shadow-btn" onclick="openPosterModal('Poster Kegiatan', 'https://via.placeholder.com/600x800?text=Poster+Seminar+Cyber')" data-id="btn-poster">Lihat Poster</button>
                                         <button class="btn-daftar-sm shadow-btn" onclick="catatDanBukaGForm('Seminar Cybersecurity Essentials', 'https://docs.google.com/forms/d/14f8B955-bFAyn6KGP60nVG2k4QLhdhp_SQF_CuKo2hA/viewform')" data-id="btn-daftar-sm">Daftar</button>
