@@ -33,7 +33,7 @@ body.dark-mode {
 
 html, body {
     width: 100%;
-    overflow-x: hidden; /* Mencegah layar geser kanan-kiri yang tidak rapi di HP */
+    overflow-x: hidden;
 }
 
 body { 
@@ -128,7 +128,7 @@ nav a:hover { color: var(--pti-yellow); }
     position: relative;
     background: url('background.jpeg') no-repeat center center/cover;
     color: #fff; 
-    min-height: calc(100vh - 65px); /* Menggunakan min-height agar aman di mode desktop mobile */
+    min-height: calc(100vh - 65px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -307,7 +307,38 @@ nav a:hover { color: var(--pti-yellow); }
     display: flex;
     flex-direction: column;
 }
-.badge-urgent { position: absolute; top: -12px; right: 15px; background-color: var(--error-color); color: #fff; padding: 0.25rem 0.9rem; border-radius: 12px; font-size: 0.75rem; font-weight: bold; box-shadow: 0 3px 8px rgba(239, 68, 68, 0.4); }
+
+/* Grouping Badges Terdekat & Sasaran */
+.badge-group {
+    position: absolute;
+    top: -12px;
+    right: 15px;
+    display: flex;
+    gap: 6px;
+}
+
+/* BADGE URGENT (TERDEKAT) - Shadow Merah Dihapus Agar Seragam */
+.badge-urgent { 
+    background-color: var(--error-color); 
+    color: #fff; 
+    padding: 0.25rem 0.8rem; 
+    border-radius: 12px; 
+    font-size: 0.75rem; 
+    font-weight: bold; 
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15); 
+}
+
+.badge-target {
+    padding: 0.25rem 0.8rem; 
+    border-radius: 12px; 
+    font-size: 0.75rem; 
+    font-weight: bold; 
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+.badge-pti { background-color: #0284c7; color: #fff; }
+.badge-pti-umum { background-color: #059669; color: #fff; }
+.badge-umum { background-color: #d97706; color: #fff; }
+
 .terdekat-card h3 { color: var(--heading-color); margin-bottom: 1rem; font-size: 1.15rem; min-height: 56px; }
 
 .info-list { display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.95rem; margin-bottom: 1.5rem; }
@@ -349,7 +380,7 @@ nav a:hover { color: var(--pti-yellow); }
 .accordion-content { display: none; padding: 1.5rem; border-top: 1px solid var(--border-color); background-color: var(--bg-color); }
 .accordion-content.active { display: block; }
 
-.item-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; }
+.item-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; }
 .item-card { background-color: var(--card-bg); border: 1px solid var(--border-color); padding: 1.2rem; border-radius: 8px; display: flex; flex-direction: column; }
 
 .item-card h4 { 
@@ -360,14 +391,20 @@ nav a:hover { color: var(--pti-yellow); }
     line-height: 1.35; 
 }
 
-.tag-wrapper { margin-top: 0.2rem; margin-bottom: 0.6rem; }
-.tag-internal, .tag-rutin, .tag-skala { display: inline-block; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: bold; }
-.tag-internal { background-color: #dbeafe; color: #1e40af; }
-.tag-rutin { background-color: #fef9c3; color: #854d0e; }
+.tag-wrapper { margin-top: 0.3rem; margin-bottom: 0.7rem; display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.tag-target, .tag-skala { display: inline-block; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: bold; }
+
+.tag-pti { background-color: #e0f2fe; color: #0369a1; }
+.tag-pti-umum { background-color: #dcfce7; color: #15803d; }
+.tag-umum { background-color: #fef3c7; color: #b45309; }
+
 .tag-soon { display: inline-block; background-color: #fee2e2; color: #991b1b; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: bold; }
-.tag-skala.nasional { background-color: #dcfce7; color: #166534; }
-.tag-skala.internasional { background-color: #f3e8ff; color: #6b21a8; }
+.tag-skala.nasional { background-color: #f3e8ff; color: #6b21a8; }
+.tag-skala.internasional { background-color: #fae8ff; color: #86198f; }
 .tag-skala.online { background-color: #e0f2fe; color: #075985; }
+.tag-skala.offline { background-color: #f1f5f9; color: #334155; }
+
+.item-card p { font-size: 0.9rem; margin-bottom: 0.3rem; line-height: 1.4; }
 
 .item-actions { display: flex; gap: 0.5rem; margin-top: auto; padding-top: 0.8rem; }
 .btn-link { flex: 1; background: none; border: 1px solid var(--border-color); color: var(--text-color); padding: 0.5rem; border-radius: 4px; cursor: pointer; font-size: 0.85rem; text-align: center; }
@@ -470,9 +507,7 @@ footer {
 .poster-frame img { width: 100%; max-height: 70vh; object-fit: contain; margin-top: 1rem; border-radius: 6px; }
 .close-btn { position: absolute; right: 20px; top: 15px; font-size: 1.8rem; font-weight: bold; cursor: pointer; color: var(--text-color); }
 
-/* ===================================================
-   RESPONSIF MOBILE & REVISI TATA LETAK HAMBURGER
-   =================================================== */
+/* Responsif Mobile */
 @media (max-width: 768px) {
     .nav-container {
         display: flex;
@@ -481,28 +516,9 @@ footer {
         padding: 0.8rem 1rem;
     }
 
-    /* Memastikan Logo di Kiri dan Hamburger + Tombol di Pojok Kanan */
-    .logo-area {
-        order: 1;
-    }
-
-    .nav-controls {
-        order: 2;
-        margin-left: auto;
-        margin-right: 0.8rem;
-    }
-
-    /* MENU HAMBURGER BERADA DI POJOK KANAN ATAS HEADER */
-    .hamburger { 
-        display: flex; 
-        order: 3; 
-    }
-
-    /* Catatan: Jika ingin Hamburger di Pojok KIRI ATAS, ubah order-nya menjadi:
-       .logo-area { order: 2; margin-left: 0.5rem; }
-       .hamburger { display: flex; order: 1; }
-       .nav-controls { order: 3; margin-left: auto; }
-    */
+    .logo-area { order: 1; }
+    .nav-controls { order: 2; margin-left: auto; margin-right: 0.8rem; }
+    .hamburger { display: flex; order: 3; }
 
     nav { 
         display: none; 
@@ -517,10 +533,7 @@ footer {
     nav.active { display: block; }
     nav ul { flex-direction: column; align-items: flex-start; gap: 1rem; }
 
-    .hero { 
-        min-height: auto; 
-        padding: 3.5rem 1rem 2.5rem 1rem; 
-    }
+    .hero { min-height: auto; padding: 3.5rem 1rem 2.5rem 1rem; }
     .hero h1.hero-main-title { font-size: 1.5rem; }
     .hero h1.hero-main-title span { font-size: 1.35rem; }
     .greeting-text { font-size: 1.25rem; }
