@@ -4,14 +4,15 @@ let currentLang = 'ID';
 const defaultGFormUrl = "https://docs.google.com/forms/d/14f8B955-bFAyn6KGP60nVG2k4QLhdhp_SQF_CuKo2hA/viewform";
 const kajianGFormUrl = "https://bit.ly/4z39Btp";
 
-// Master Data Kegiatan
+// Master Data Kegiatan dengan Sasaran Peserta & Skala Terupdate
 const eventsData = [
     { 
         title: "Workshop & Kelas Kreatif: Pemrograman Web Modern", 
         category: "Kelas Kreatif", 
         date: "Sabtu, 21 November 2026", 
         month: "November", 
-        skala: "Internal PTI",
+        target: "Mahasiswa PTI",
+        skala: "Offline",
         posterImg: "https://via.placeholder.com/600x800/bde0fe/0f172a?text=Poster+Web+Modern",
         formUrl: defaultGFormUrl
     },
@@ -20,7 +21,8 @@ const eventsData = [
         category: "Kegiatan Ormawa PTI", 
         date: "Jumat, 27 November 2026", 
         month: "November", 
-        skala: "Mahasiswa PTI & Umum",
+        target: "Mahasiswa PTI & Umum",
+        skala: "Offline",
         posterImg: "poster kajian islam.jpeg",
         formUrl: kajianGFormUrl
     },
@@ -29,6 +31,7 @@ const eventsData = [
         category: "Seminar & Webinar", 
         date: "Rabu, 2 Desember 2026", 
         month: "Desember", 
+        target: "Umum",
         skala: "Nasional", 
         type: "Online",
         posterImg: "https://via.placeholder.com/600x800/bde0fe/0f172a?text=Poster+Webinar+AI",
@@ -39,7 +42,8 @@ const eventsData = [
         category: "Kegiatan Ormawa PTI", 
         date: "Kamis, 10 Desember 2026", 
         month: "Desember", 
-        skala: "Internal PTI",
+        target: "Mahasiswa PTI",
+        skala: "Offline",
         posterImg: "https://via.placeholder.com/600x800?text=Poster+Tech+Fusion",
         formUrl: defaultGFormUrl
     },
@@ -48,7 +52,8 @@ const eventsData = [
         category: "Kelas Kreatif", 
         date: "Sabtu, 19 Desember 2026", 
         month: "Desember", 
-        skala: "Internal PTI",
+        target: "Mahasiswa PTI",
+        skala: "Offline",
         posterImg: "https://via.placeholder.com/600x800?text=Poster+IoT",
         formUrl: null
     },
@@ -57,6 +62,7 @@ const eventsData = [
         category: "Section Lomba", 
         date: "Pendaftaran: 1 November 2026 - 30 November 2026", 
         month: "November", 
+        target: "Umum",
         skala: "Nasional",
         posterImg: "https://via.placeholder.com/600x800?text=Poster+Lomba+Web",
         formUrl: defaultGFormUrl
@@ -66,6 +72,7 @@ const eventsData = [
         category: "Section Lomba", 
         date: "Pendaftaran: 15 November 2026 - 15 Januari 2027", 
         month: "Januari", 
+        target: "Umum",
         skala: "Internasional",
         posterImg: "https://via.placeholder.com/600x800?text=Poster+Hackathon",
         formUrl: defaultGFormUrl
@@ -75,6 +82,7 @@ const eventsData = [
         category: "Seminar & Webinar", 
         date: "Sabtu, 5 Desember 2026", 
         month: "Desember", 
+        target: "Mahasiswa PTI & Umum",
         skala: "Nasional", 
         type: "Offline",
         posterImg: "https://via.placeholder.com/600x800?text=Poster+Seminar+Cyber",
@@ -171,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 5. Fitur Search Bar
+    // 5. Fitur Search Bar Terintegrasi Target & Skala
     const btnSearch = document.getElementById('btnSearch');
     const btnResetSearch = document.getElementById('btnResetSearch');
     const searchInput = document.getElementById('searchInput');
@@ -205,7 +213,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             let matchSkala = true;
             if (selectedSkala !== '') {
-                matchSkala = event.skala === selectedSkala || (event.type && event.type === selectedSkala);
+                matchSkala = event.target === selectedSkala || 
+                             event.skala === selectedSkala || 
+                             (event.type && event.type === selectedSkala);
             }
 
             return matchQuery && matchBulan && matchSkala;
@@ -230,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 div.innerHTML = `
                     <div>
                         <strong>${item.title}</strong><br>
-                        <small style="color: #64748b;">📅 ${item.date} | ${item.skala}</small>
+                        <small style="color: #64748b;">📅 ${item.date} | 🎯 ${item.target} (${item.skala})</small>
                     </div>
                     <div class="search-item-actions">
                         <button class="btn-search-poster shadow-btn" onclick="openPosterModal('Poster Kegiatan', '${item.posterImg}')">Lihat Poster</button>
