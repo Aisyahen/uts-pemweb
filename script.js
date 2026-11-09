@@ -4,7 +4,7 @@ let currentLang = 'ID';
 const defaultGFormUrl = "https://docs.google.com/forms/d/14f8B955-bFAyn6KGP60nVG2k4QLhdhp_SQF_CuKo2hA/viewform";
 const kajianGFormUrl = "https://bit.ly/4z39Btp";
 
-// Master Data Kegiatan dengan Sasaran Peserta & Skala Terupdate
+// Master Data Kegiatan (Nama Bulan Lengkap & Format Rapi)
 const eventsData = [
     { 
         title: "Workshop & Kelas Kreatif: Pemrograman Web Modern", 
