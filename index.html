@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info Event PTI - Portal Kegiatan & Kelas Kreatif UMS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header & Navigasi -->
+    <header>
+        <div class="nav-container">
+            <div class="logo-area">
+                <img src="logo pti.png" alt="Logo PTI UMS" class="header-logo">
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <nav id="nav-menu">
+                <ul>
+                    <li><a href="#beranda" data-id="nav-beranda">Beranda</a></li>
+                    <li><a href="#event-terdekat" data-id="nav-terdekat">Event Terdekat</a></li>
+                    <li><a href="#katalog-kegiatan" data-id="nav-katalog">Katalog Kegiatan</a></li>
+                    <li><a href="#dokumentasi" data-id="nav-dokumentasi">Kegiatan Terlaksana</a></li>
+                    <li><a href="javascript:void(0)" onclick="openRiwayatModal()" data-id="nav-riwayat">Riwayat Pendaftaran</a></li>
+                </ul>
+            </nav>
+            <div class="nav-controls">
+                <button id="theme-toggle" class="btn-control" title="Toggle Mode Gelap">🌙</button>
+                <button id="lang-toggle" class="btn-control btn-lang" title="Switch Language">EN</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section Layar Penuh Kunci Ketinggian -->
+        <section id="beranda" class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                
+                <!-- Group Teks Judul Atas -->
+                <div class="hero-text-group">
+                    <p class="greeting-text shimmer-text">Halo Sobat Kreatif!</p>
+                    <h1 data-id="hero-title" class="hero-main-title">Selamat Datang di Portal Info Event & Kegiatan<br><span>PTI FKIP UMS</span></h1>
+                </div>
+
+                <!-- Group Slogan Dekat Di Atas Search Bar -->
+                <div class="slogan-container slogan-near-search">
+                    <p class="slogan-main shimmer-text">PTI KREATIF</p>
+                    <p class="slogan-sub" data-id="slogan">Kompeten, Religius, Efektif, Amanah, Terampil, Inovatif, Future</p>
+                </div>
+
+                <!-- Box Search 1 Baris (Panjang Pas dengan Judul) -->
+                <div class="search-section-wrapper">
+                    <div class="search-filter-box shadow-card">
+                        <div class="search-single-row">
+                            <input type="text" id="searchInput" placeholder="Cari nama kegiatan..." class="search-col">
+                            
+                            <select id="filterBulan" class="search-col">
+                                <option value="">Semua Bulan</option>
+                                <option value="Januari">Januari</option>
+                                <option value="Februari">Februari</option>
+                                <option value="Maret">Maret</option>
+                                <option value="April">April</option>
+                                <option value="Mei">Mei</option>
+                                <option value="Juni">Juni</option>
+                                <option value="Juli">Juli</option>
+                                <option value="Agustus">Agustus</option>
+                                <option value="September">September</option>
+                                <option value="Oktober">Oktober</option>
+                                <option value="November">November</option>
+                                <option value="Desember">Desember</option>
+                            </select>
+
+                            <select id="filterSkala" class="search-col">
+                                <option value="">Semua Skala</option>
+                                <option value="Internal PTI">Internal PTI</option>
+                                <option value="Mahasiswa PTI & Umum">Mahasiswa PTI & Umum</option>
+                                <option value="Nasional">Skala Nasional</option>
+                                <option value="Internasional">Skala Internasional</option>
+                                <option value="Online">Online / Webinar</option>
+                                <option value="Offline">Offline</option>
+                            </select>
+
+                            <button id="btnSearch" class="btn-search shadow-btn">Cari Event</button>
+                            <button id="btnResetSearch" class="btn-reset-search shadow-btn" title="Reset Pencarian" style="display: none;">✕</button>
+                        </div>
+                        <div id="searchResultArea" class="search-result-area" style="display: none;">
+                            <h4 id="searchResultTitle">Hasil Pencarian:</h4>
+                            <div id="searchResultList" class="search-result-list"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 1: Dashboard Event Terdekat -->
+        <section id="event-terdekat" class="container">
+            <h2 class="section-title" data-id="title-terdekat">🔥 Event Terdekat 🔥</h2>
+            <div class="terdekat-grid">
+                <!-- Card 1 -->
+                <article class="terdekat-card shadow-card">
+                    <span class="badge-urgent" data-id="badge-terdekat">TERDEKAT</span>
+                    <h3>Workshop & Kelas Kreatif: Pemrograman Web Modern</h3>
+                    <div class="info-list">
+                        <p class="info-row"><span class="info-label">📅 Hari, Tgl</span><span class="info-colon">:</span><span class="info-val">Sabtu, 21 November 2026</span></p>
+                        <p class="info-row"><span class="info-label">⏰ Waktu</span><span class="info-colon">:</span><span class="info-val">09.00 - 12.00 WIB</span></p>
+                        <p class="info-row"><span class="info-label">📍 Lokasi</span><span class="info-colon">:</span><span class="info-val">Lab Komputer 2 PTI (Offline)</span></p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn-poster shadow-btn" onclick="openPosterModal('Poster Kegiatan', 'https://via.placeholder.com/600x800/bde0fe/0f172a?text=Poster+Web+Modern')" data-id="btn-poster">Lihat Poster</button>
+                        <button class="btn-daftar shadow-btn" onclick="catatDanBukaGForm('Workshop & Kelas Kreatif: Pemrograman Web Modern', 'https://docs.google.com/forms/d/14f8B955-bFAyn6KGP60nVG2k4QLhdhp_SQF_CuKo2hA/viewform')" data-id="btn-daftar">Daftar Sekarang</button>
+                    </div>
+                </article>
+
+                <!-- Card 2 (Kajian Islam) -->
+                <article class="terdekat-card shadow-card">
+                    <span class="badge-urgent" data-id="badge-terdekat">TERDEKAT</span>
+                    <h3>Kajian Islam: Pemuda, Mau Dibawa Kemana Hidupmu?</h3>
+                    <div class="info-list">
+                        <p class="info-row"><span class="info-label">📅 Hari, Tgl</span><span class="info-colon">:</span><span class="info-val">Jumat, 27 November 2026</span></p>
+                        <p class="info-row"><span class="info-label">⏰ Waktu</span><span class="info-colon">:</span><span class="info-val">15.30 WIB</span></p>
+                        <p class="info-row"><span class="info-label">📍 Lokasi</span><span class="info-colon">:</span><span class="info-val">Masjid Fadhlurrahman Kampus 1 UMS</span></p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn-poster shadow-btn" onclick="openPosterModal('Poster Kegiatan', 'poster kajian islam.jpeg')" data-id="btn-poster">Lihat Poster</button>
+                        <button class="btn-daftar shadow-btn" onclick="catatDanBukaGForm('Kajian Islam: Pemuda, Mau Dibawa Kemana Hidupmu?', 'https://bit.ly/4z39Btp')" data-id="btn-daftar">Daftar Sekarang</button>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="terdekat-card shadow-card">
+                    <span class="badge-urgent" data-id="badge-terdekat">TERDEKAT</span>
+                    <h3>Webinar Nasional: AI Trends in Education</h3>
+                    <div class="info-list">
+                        <p class="info-row"><span class="info-label">📅 Hari, Tgl</span><span class="info-colon">:</span><span class="info-val">Rabu, 2 Desember 2026</span></p>
+                        <p class="info-row"><span class="info-label">⏰ Waktu</span><span class="info-colon">:</span><span class="info-val">13.00 WIB</span></p>
+                        <p class="info-row"><span class="info-label">📍 Lokasi</span><span class="info-colon">:</span><span class="info-val">Zoom Meeting (Online)</span></p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn-poster shadow-btn" onclick="openPosterModal('Poster Kegiatan', 'https://via.placeholder.com/600x800/bde0fe/0f172a?text=Poster+Webinar+AI')" data-id="btn-poster">Lihat Poster</button>
+                        <button class="btn-daftar shadow-btn" onclick="catatDanBukaGForm('Webinar Nasional: AI Trends in Education', 'https://docs.google.com/forms/d/14f8B955-bFAyn6KGP60nVG2k4QLhdhp_SQF_CuKo2hA/viewform')" data-id="btn-daftar">Daftar Sekarang</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Section 2: Katalog Kegiatan -->
+        <section id="katalog-kegiatan" class="katalog-section-wrapper">
+            <div class="container katalog-container">
+                <h2 class="section-title" data-id="title-katalog">🗂️ Katalog Kegiatan</h2>
+                <div class="accordion-container">
+                    
+                    <!-- Accordion 1 -->
+                    <div class="accordion-item shadow-card" id="acc-ormawa">
+                        <button class="accordion-header">
+                            <span data-id="sec-ormawa">👥 Kegiatan Ormawa HMP PTI</span>
+                            <span class="icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="item-grid">
+                                <div class="item-card shadow-sm">
+                                    <h4>Kajian Islam: Pemuda, Mau Dibawa Kemana Hidupmu?</h4>
+                                    <div class="tag-wrapper"><span class="tag-internal">Mahasiswa PTI & Umum</span></div>
+                                    <p><strong>Hari, Tgl:</strong> Jumat, 27 November 2026</p>
+                                    <div class="item-actions">
+                                        <button class="btn-link shadow-btn" onclick="openPosterModal('Poster Kegiatan', 'poster kajian islam.jpeg')" data-id="btn-poster">Lihat Poster</button>
+                                        <button class="btn-daftar-sm shadow-btn" onclick="catatDanBukaGForm('Kajian Islam: Pemuda, Mau Dibawa Kemana Hidupmu?', 'https://bit.ly/4z39Btp')" data-id="btn-daftar-sm">Daftar</button>
+                                    </div>
+                                </div>
+
+                                <div class="item-card shadow-sm">
+                                    <h4>Workshop Tech Fusion</h4>
+                                    <div class="tag-wrapper"><span class="tag-internal">Internal PTI</span></div>
+                                    <p><strong>Hari, Tgl:</strong> Kamis, 10 Desember 2026</p>
+                                    <div class="item-actions">
+                                        <button class="btn-link shadow-btn" onclick="openPosterModal('Poster Kegiatan', 'https://via.placeholder.com/600x800?text=Poster+Tech+Fusion')" data-id="btn-poster">Lihat Poster</button>
+                                        <button class="btn-daftar-sm shadow-btn" onclick="catatDanBukaGForm('Workshop Tech Fusion', 'https://docs.google.com/forms/d/14f8B955-bFAyn6KGP60nVG2k4QLhdhp_SQF_CuKo2hA/viewform')" data-id="btn-daftar-sm">Daftar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accordion 2 -->
+                    <div class="accordion-item shadow-card" id="acc-kelas">
+                        <button class="accordion-header">
+                            <span data-id="sec-kelas">💻 Kelas Kreatif Rutin</span>
+                            <span class="icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="item-grid">
+                                <div class="item-card shadow-sm">
+                                    <h4>Pemrograman Web Modern</h4>
+                                    <div class="tag-wrapper"><span class="tag-rutin">Rutin Internal PTI</span></div>
+                                    <p><strong>Hari, Tgl:</strong> Sabtu, 21 November 2026</p>
+                                    <div class="item-actions">
+                                        <button class="btn-link shadow-btn" onclick="openPosterModal('Poster Kegiatan', 'https://via.placeholder.com/600x800?text=Poster+Kelas+Web')" data-id="btn-poster">Lihat Poster</button>
+                                        <button class="btn-daftar-sm shadow-btn" onclick="catatDanBukaGForm('Pemrograman Web Modern', 'https://docs.google.com/forms/d/14f8B955-bFAyn6KGP60nVG2k4QLhdhp_SQF_CuKo2hA/viewform')" data-id="btn-daftar-sm">Daftar</button>
+                                    </div>
+                                </div>
+
+                                <div class="item-card shadow-sm">
+                                    <h4>IoT & Embedded System</h4>
+                                    <div class="tag-wrapper"><span class="tag-soon">SOON</span></div>
+                                    <p><strong>Hari, Tgl:</strong> Sabtu, 19 Desember 2026</p>
+                                    <div class="item-actions">
+                                        <button class="btn-link shadow-btn" onclick="openPosterModal('Poster Kegiatan', 'https://via.placeholder.com/600x800?text=Poster+IoT')" data-id="btn-poster">Lihat Poster</button>
+                                        <button class="btn-disabled" disabled>Soon</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accordion 3 -->
+                    <div class="accordion-item shadow-card" id="acc-lomba">
+                        <button class="accordion-header">
+                            <span data-id="sec-lomba">🏆 Lomba & Kompetisi</span>
+                            <span class="icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="item-grid">
+                                <div class="item-card shadow-sm">
+                                    <h4>Web Design Competition</h4>
+                                    <div class="tag-wrapper"><span class="tag-skala nasional">Nasional</span></div>
+                                    <p><strong>Pendaftaran:</strong> 1 November 2026 - 30 November 2026</p>
+                                    <div class="item-actions">
+                                        <button class="btn-link shadow-btn" onclick="openPosterModal('Poster Kegiatan', 'https://via.placeholder.com/600x800?text=Poster+Lomba+Web')" data-id="btn-poster">Lihat Poster</button>
+                                        <button class="btn-daftar-sm shadow-btn" onclick="catatDanBukaGForm('Web Design Competition', 'https://docs.google.com/forms/d/14f8B955-bFAyn6KGP60nVG2k4QLhdhp_SQF_CuKo2hA/viewform')" data-id="btn-daftar-sm">Daftar</button>
+                                    </div>
+                                </div>
+
+                                <div class="item-card shadow-sm">
+                                    <h4>International EdTech Hackathon</h4>
+                                    <div class="tag-wrapper"><span class="tag-skala internasional">Internasional</span></div>
+                                    <p><strong>Pendaftaran:</strong> 15 November 2026 - 15 Januari 2027</p>
+                                    <div class="item-actions">
+                                        <button class="btn-link shadow-btn" onclick="openPosterModal('Poster Kegiatan', 'https://via.placeholder.com/600x800?text=Poster+Hackathon')" data-id="btn-poster">Lihat Poster</button>
+                                        <button class="btn-daftar-sm shadow-btn" onclick="catatDanBukaGForm('International EdTech Hackathon', 'https://docs.google.com/forms/d/14f8B955-bFAyn6KGP60nVG2k4QLhdhp_SQF_CuKo2hA/viewform')" data-id="btn-daftar-sm">Daftar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accordion 4 -->
+                    <div class="accordion-item shadow-card" id="acc-seminar">
+                        <button class="accordion-header">
+                            <span data-id="sec-seminar">📢 Seminar & Webinar</span>
+                            <span class="icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="item-grid">
+                                <div class="item-card shadow-sm">
+                                    <h4>Webinar AI Trends in Education</h4>
+                                    <div class="tag-wrapper"><span class="tag-skala online">Online | Nasional</span></div>
+                                    <p><strong>Platform:</strong> Zoom Meeting</p>
+                                    <p><strong>Benefit:</strong> E-Sertifikat, Relasi, E-Book</p>
+                                    <p><strong>Hari, Tgl:</strong> Rabu, 2 Desember 2026</p>
+                                    <div class="item-actions">
+                                        <button class="btn-link shadow-btn" onclick="openPosterModal('Poster Kegiatan', 'https://via.placeholder.com/600x800?text=Poster+Webinar+AI')" data-id="btn-poster">Lihat Poster</button>
+                                        <button class="btn-daftar-sm shadow-btn" onclick="catatDanBukaGForm('Webinar AI Trends in Education', 'https://docs.google.com/forms/d/14f8B955-bFAyn6KGP60nVG2k4QLhdhp_SQF_CuKo2hA/viewform')" data-id="btn-daftar-sm">Daftar</button>
+                                    </div>
+                                </div>
+
+                                <div class="item-card shadow-sm">
+                                    <h4>Seminar Cybersecurity Essentials</h4>
+                                    <div class="tag-wrapper"><span class="tag-skala nasional">Offline | Nasional</span></div>
+                                    <p><strong>Tempat:</strong> Auditorium Moh. Djazman UMS</p>
+                                    <p><strong>Benefit:</strong> Sertifikat Resmi, Lunch Box, Kits</p>
+                                    <p><strong>Hari, Tgl:</strong> Sabtu, 5 Desember 2026</p>
+                                    <div class="item-actions">
+                                        <button class="btn-link shadow-btn" onclick="openPosterModal('Poster Kegiatan', 'https://via.placeholder.com/600x800?text=Poster+Seminar+Cyber')" data-id="btn-poster">Lihat Poster</button>
+                                        <button class="btn-daftar-sm shadow-btn" onclick="catatDanBukaGForm('Seminar Cybersecurity Essentials', 'https://docs.google.com/forms/d/14f8B955-bFAyn6KGP60nVG2k4QLhdhp_SQF_CuKo2hA/viewform')" data-id="btn-daftar-sm">Daftar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Kegiatan Terlaksana -->
+        <section id="dokumentasi" class="container">
+            <h2 class="section-title" data-id="title-dokumentasi">🖼️ Kegiatan Terlaksana</h2>
+            <div class="dokumentasi-grid">
+                <article class="dokumen-card shadow-card">
+                    <img src="lkmmd.jpeg" alt="Latihan Keterampilan Manajemen Mahasiswa Dasar">
+                    <div class="dokumen-body">
+                        <h4>Latihan Keterampilan Manajemen Mahasiswa Dasar</h4>
+                        <p class="dokumen-date">Sabtu - Minggu, 17 - 18 Oktober 2026</p>
+                        <p>Pelatihan manajerial kepemimpinan dasar bagi mahasiswa PTI UMS guna membekali kemampuan organisasi, manajemen waktu, dan kepemimpinan yang berkarakter.</p>
+                    </div>
+                </article>
+
+                <article class="dokumen-card shadow-card">
+                    <img src="kelas kreatif.jpeg" alt="Kelas Kreatif Pemrograman Web">
+                    <div class="dokumen-body">
+                        <h4>Kelas Kreatif Pemrograman Web</h4>
+                        <p class="dokumen-date">Sabtu, 26 September 2026</p>
+                        <p>Pelaksanaan workshop praktikal pembuatan website statis hingga interaktif menggunakan HTML, CSS, dan JavaScript untuk meningkatkan keterampilan koding mahasiswa.</p>
+                    </div>
+                </article>
+
+                <article class="dokumen-card shadow-card">
+                    <img src="pimpel.jpeg" alt="Seminar Nasional Pimpel">
+                    <div class="dokumen-body">
+                        <h4>Seminar Nasional Pimpel</h4>
+                        <p class="dokumen-date">Rabu, 12 Agustus 2026</p>
+                        <p>Seminar nasional bimbingan dan pendampingan pembelajaran inovatif teknologi pendidikan yang dihadiri para akademisi serta praktisi pendidikan teknologi.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 Program Studi Pendidikan Teknik Informatika - Universitas Muhammadiyah Surakarta</p>
+            <p>
+                <a href="https://pti.ums.ac.id/" target="_blank" class="footer-web-link">https://pti.ums.ac.id/</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- MODAL POPUP POSTER -->
+    <div id="modalPoster" class="modal">
+        <div class="modal-content modal-poster-content shadow-modal">
+            <span class="close-btn" onclick="closePosterModal()">&times;</span>
+            <h3 id="posterTitle">Poster Kegiatan</h3>
+            <div class="poster-frame">
+                <img id="posterImage" src="" alt="Poster Event">
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL POPUP RIWAYAT PENDAFTARAN -->
+    <div id="modalRiwayat" class="modal">
+        <div class="modal-content modal-riwayat-content shadow-modal">
+            <span class="close-btn" onclick="closeRiwayatModal()">&times;</span>
+            <h3 data-id="sec-riwayat">📋 Riwayat Pendaftaran Anda</h3>
+            <div class="riwayat-wrapper">
+                <table class="table-riwayat">
+                    <thead>
+                        <tr>
+                            <th style="width: 45px;">No</th>
+                            <th data-id="th-event">Nama Event</th>
+                            <th style="width: 160px;" data-id="th-tgl">Waktu Akses</th>
+                            <th style="width: 160px;" data-id="th-link">Tautan GForm</th>
+                            <th style="width: 240px;" data-id="th-status">Status Pendaftaran</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-riwayat"></tbody>
+                </table>
+                <p id="empty-riwayat" class="empty-text" data-id="empty-riwayat">Belum ada riwayat pendaftaran.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
