@@ -317,7 +317,6 @@ nav a:hover { color: var(--pti-yellow); }
     gap: 6px;
 }
 
-/* BADGE URGENT (TERDEKAT) - Shadow Merah Dihapus Agar Seragam */
 .badge-urgent { 
     background-color: var(--error-color); 
     color: #fff; 
@@ -341,11 +340,12 @@ nav a:hover { color: var(--pti-yellow); }
 
 .terdekat-card h3 { color: var(--heading-color); margin-bottom: 1rem; font-size: 1.15rem; min-height: 56px; }
 
-.info-list { display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.95rem; margin-bottom: 1.5rem; }
-.info-row { display: flex; align-items: flex-start; }
-.info-label { width: 95px; flex-shrink: 0; font-weight: 600; }
-.info-colon { width: 15px; flex-shrink: 0; text-align: center; font-weight: 600; }
-.info-val { flex-grow: 1; }
+/* FORMAT TATA LETAK RATA PRESISI DENGAN TITIK DUA (GRID LAYOUT) */
+.info-list { display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.9rem; margin-bottom: 1.2rem; }
+.info-row { display: flex; align-items: flex-start; width: 100%; }
+.info-label { width: 110px; flex-shrink: 0; font-weight: 600; }
+.info-colon { width: 12px; flex-shrink: 0; text-align: center; font-weight: 600; }
+.info-val { flex-grow: 1; text-align: left; word-break: break-word; }
 
 .card-actions { display: flex; gap: 0.8rem; margin-top: auto; }
 .btn-poster { flex: 1; background-color: var(--pti-sky-blue); color: #0f172a; border: none; padding: 0.65rem; border-radius: 6px; font-weight: bold; cursor: pointer; text-align: center; text-decoration: none; }
@@ -403,8 +403,6 @@ nav a:hover { color: var(--pti-yellow); }
 .tag-skala.internasional { background-color: #fae8ff; color: #86198f; }
 .tag-skala.online { background-color: #e0f2fe; color: #075985; }
 .tag-skala.offline { background-color: #f1f5f9; color: #334155; }
-
-.item-card p { font-size: 0.9rem; margin-bottom: 0.3rem; line-height: 1.4; }
 
 .item-actions { display: flex; gap: 0.5rem; margin-top: auto; padding-top: 0.8rem; }
 .btn-link { flex: 1; background: none; border: 1px solid var(--border-color); color: var(--text-color); padding: 0.5rem; border-radius: 4px; cursor: pointer; font-size: 0.85rem; text-align: center; }
