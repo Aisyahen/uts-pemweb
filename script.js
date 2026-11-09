@@ -357,7 +357,7 @@ function renderRiwayatTable() {
                 <td>${index + 1}</td>
                 <td><strong>${item.event}</strong></td>
                 <td>${item.tanggal}</td>
-                <td><a href="${item.url}" target="_blank" class="btn-riwayat-link">Buka Link GForm ↗</a></td>
+                <td><a href="${item.url}" target="_blank" class="btn-riwayat-link">Buka Link Form ↗</a></td>
                 <td>${statusHtml}</td>
             `;
             tbody.appendChild(tr);
